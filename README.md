@@ -4,7 +4,7 @@
 
 ## 主要構成
 - ベースイメージ: `mcr.microsoft.com/devcontainers/base:ubuntu`
-- Dev Container Features: Git / Node.js 20
+- Dev Container Features: Git / Node.js LTS
 - Sui CLI: `suiup` で `sui@testnet` をインストール
 - ライフサイクル:
   - 初回: `.devcontainer/setup.sh` が `suiup` と `sui` を導入
