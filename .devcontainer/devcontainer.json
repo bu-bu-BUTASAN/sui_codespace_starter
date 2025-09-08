@@ -1,0 +1,32 @@
+{
+  // Sui dev container (no Prebuild). Installs via suiup.
+  "name": "Sui Starter (No Prebuild)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Mysten.move"
+      ]
+    }
+  },
+  // 初回作成時: suiup + Sui CLI(testnet) を導入
+  "onCreateCommand": "bash .devcontainer/setup.sh",
+  // 起動毎: testnet を最新化（失敗は許容）
+  "postStartCommand": "bash .devcontainer/update-on-start.sh",
+  // ~/.local/bin を先頭に追加して優先解決
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin"
+  },
+  // ローカルネット用の目印ポート
+  "forwardPorts": [9000, 9123],
+  "portsAttributes": {
+    "9000": { "label": "Sui RPC" },
+    "9123": { "label": "Sui Faucet" }
+  }
+}
