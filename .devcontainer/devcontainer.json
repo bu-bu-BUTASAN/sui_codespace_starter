@@ -1,12 +1,10 @@
 {
   // Sui dev container (no Prebuild). Installs via suiup.
   "name": "Sui Starter (No Prebuild)",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    }
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "customizations": {
     "vscode": {
@@ -23,10 +21,9 @@
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin"
   },
-  // ローカルネット用の目印ポート
-  "forwardPorts": [9000, 9123],
+  // フロントエンド開発の目印ポート
+  "forwardPorts": [3000],
   "portsAttributes": {
-    "9000": { "label": "Sui RPC" },
-    "9123": { "label": "Sui Faucet" }
+    "3000": { "label": "Web (Next.js)" }
   }
 }

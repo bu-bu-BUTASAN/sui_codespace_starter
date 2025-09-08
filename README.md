@@ -3,8 +3,8 @@
 このリポジトリは、Prebuild を使わずに最小構成の Sui 開発環境を素早く配布するための VS Code Dev Containers / GitHub Codespaces 用テンプレートです。Sui CLI は `suiup`（testnet 系）で導入・更新します。
 
 ## 主要構成
-- ベースイメージ: `mcr.microsoft.com/devcontainers/base:ubuntu`
-- Dev Container Features: Git / Node.js LTS
+- ベースイメージ: `mcr.microsoft.com/devcontainers/typescript-node:22-bookworm`（Node 22 + TS/ESLint など同梱）
+- Dev Container Features: Git / GitHub CLI（`gh`）
 - Sui CLI: `suiup` で `sui@testnet` をインストール
 - ライフサイクル:
   - 初回: `.devcontainer/setup.sh` が `suiup` と `sui` を導入
