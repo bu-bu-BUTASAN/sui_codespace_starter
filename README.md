@@ -1,4 +1,4 @@
-# Sui Codespace Starter (No Prebuild)
+# Sui Codespace Starter
 
 このリポジトリは、Prebuild を使わずに最小構成の Sui 開発環境を素早く配布するための VS Code Dev Containers / GitHub Codespaces 用テンプレートです。Sui CLI は `suiup`（testnet 系）で導入・更新します。
 
