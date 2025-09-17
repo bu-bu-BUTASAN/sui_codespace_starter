@@ -1,10 +1,13 @@
 {
-  // Sui dev container (no Prebuild). Installs via suiup.
-  "name": "Sui Starter (No Prebuild)",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
+  // Sui dev container leveraging the official Mysten Labs image.
+  "name": "sui_dev",
+  "image": "mysten/sui-tools:devnet",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    }
   },
   "customizations": {
     "vscode": {
@@ -13,13 +16,11 @@
       ]
     }
   },
-  // 初回作成時: suiup + Sui CLI(testnet) を導入
-  "onCreateCommand": "bash .devcontainer/setup.sh",
-  // 起動毎: testnet を最新化（失敗は許容）
+  // 起動毎に最新の Sui CLI へ更新
   "postStartCommand": "bash .devcontainer/update-on-start.sh",
   // ~/.local/bin を先頭に追加して優先解決
   "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin"
+    "PATH": "${containerEnv:HOME}/.local/bin:${containerEnv:PATH}"
   },
   // フロントエンド開発の目印ポート
   "forwardPorts": [3000],
